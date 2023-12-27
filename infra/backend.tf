@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "garrettleber-tf-backend"
-    key    = "prod/terraform.tfstate"
+    key    = "cailinleber-prod/terraform.tfstate"
     region = "us-east-1"
   }
 }
