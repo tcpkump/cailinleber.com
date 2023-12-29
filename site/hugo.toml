@@ -1,4 +1,4 @@
-baseurl = "https://cailinleber.com/"
+baseurl = "https://BASE_URL_PLACEHOLDER"
 title = "Cailin Leber | Portfolio"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
@@ -57,3 +57,10 @@ url = "contact/"
 [params.social]
 email = "cailinbrv17@gmail.com"
 linkedin = "https://linkedin.com/in/cailinleber"
+
+[deployment]
+
+[[deployment.targets]]
+name = "s3"
+URL = "s3://BUCKET_PLACEHOLDER?region=us-east-1&awssdk=2"
+cloudFrontDistributionID = "CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER"

@@ -138,14 +138,13 @@ jobs:
 
       - name: Extract Terraform Outputs and Load into config
         run: |
-          sed -i "s|BUCKET_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.website_bucket_name.value')|g" ./config.yaml
-          sed -i "s|BASE_URL_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.website_bucket_name.value')|g" ./config.yaml
-          sed -i "s|VISITOR_COUNTER_URL_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.api_gateway_url.value')|g" ./config.yaml
-          sed -i "s|CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.cloudfront_distribution_id.value')|g" ./config.yaml
+          sed -i "s|BUCKET_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.website_bucket_name.value')|g" ./hugo.toml
+          sed -i "s|BASE_URL_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.website_bucket_name.value')|g" ./hugo.toml
+          sed -i "s|CLOUDFRONT_DISTRIBUTION_ID_PLACEHOLDER|$(cat ./terraform_outputs.json | jq -r '.cloudfront_distribution_id.value')|g" ./hugo.toml
 
       - name: Cat out config lines
         run: |
-          cat ./config.yaml | grep -E 'baseURL|visitorCounterURL|s3://|cloudFrontDistributionID'
+          cat ./hugo.toml | grep -E 'baseURL|s3://|cloudFrontDistributionID'
 
       - name: Build
         run: hugo --minify
@@ -161,7 +160,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: site-config
-          path: site/config.yaml
+          path: site/hugo.toml
 
   deploy-site:
     name: Deploy Site
