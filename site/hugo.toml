@@ -13,10 +13,7 @@ googleAnalytics = ""
 style = "pink"
 description = "Explore my portfolio and get in touch."
 copyright = "&copy;2023 Cailin Leber"
-sidebarAbout = [
-  "I am a creative illustrator and graphic designer with more than 10 years of experience.",
-  "Originally from Toronto, currently based in London.",
-]
+sidebarAbout = ["I am an Interior Design student at Purdue University."]
 # Contact page
 # Since this template is static, the contact form uses www.formspree.io as a
 # proxy. The form makes a POST request to their servers to send the actual
